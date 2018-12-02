@@ -50,3 +50,41 @@ register = () => {
         .catch(err => console.log(err))
     }
 };
+
+
+login = () => {
+    event.preventDefault()
+    username = document.getElementById("username_login").value;
+    password = document.getElementById("password_login").value;  
+
+    const data = {
+        username,
+        password
+    }
+
+    const url = "http://127.0.0.1:5000/api/v2/login"
+
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.hasOwnProperty("access_token")){
+            token = data["access_token"]
+            console.log(token)
+            localStorage.setItem("token", token)
+            window.location.href("./order.html")
+        } else {
+            message = data["message"]
+            err_element = document.getElementById("notif-login")
+            err_element.classList.add("err-msg")
+            err_element.innerHTML = message
+        }
+    })
+    .catch(err => console.log(err))
+
+}

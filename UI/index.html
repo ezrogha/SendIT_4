@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
   <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
+  <script src="js/fetchscripts/redirect.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/login.js"></script>
   <script src="js/fetchscripts/login.js"></script>
@@ -31,9 +32,9 @@
         </p>
       </form>
       <form>
-        <input type="text" id="username" placeholder="Username" />
-        <input type="password" id="password" placeholder="Password" />
-        <span class="err-msg" id="err-login"></span>
+        <input type="text" id="username_login" placeholder="Username" />
+        <input type="password" id="password_login" placeholder="Password" />
+        <span id="notif-login"></span>
         <button class="btn" onclick="login()">Login</button>
         <p class="message">Not Registered?
           <a href="#">Register</a>
