@@ -10,6 +10,7 @@
   <link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
   <link rel="stylesheet" type="text/css" media="screen" href="../css/login.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../js/fetchscripts/login.js"></script>
 </head>
 
 <body>
@@ -18,10 +19,10 @@
       <a href="login.html"><img src="../images/nav_logo.png" class="logo" /></a>
       <form>
         <h2>Admin</h2>
-        <input type="text" placeholder="Username" />
-        <input type="Password" placeholder="Password" />
-        <span class="err-msg" id="err-login"></span>
-        <button class="btn" onclick="">Login</button>
+        <input type="text" id="username_login" placeholder="Username" />
+        <input type="Password" id="password_login" placeholder="Password" />
+        <span id="notif-login"></span>
+        <button class="btn" onclick="login('admin')">Login</button>
         <p class="message">
           <a href="../index.html"><i class="fa fa-hand-point-left"></i> Go Back</a>
         </p>

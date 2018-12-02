@@ -52,7 +52,7 @@ register = () => {
 };
 
 
-login = () => {
+login = (user) => {
     event.preventDefault()
     username = document.getElementById("username_login").value;
     password = document.getElementById("password_login").value;  
@@ -61,8 +61,14 @@ login = () => {
         username,
         password
     }
-
-    const url = "http://127.0.0.1:5000/api/v2/login"
+    
+    if(user == 'admin'){
+        var url = "http://127.0.0.1:5000/api/v2/admin/login"
+        var home = "./orders.html"
+    } else {
+        var url = "http://127.0.0.1:5000/api/v2/login"
+        var home = "./order.html"
+    }
 
     fetch(url, {
         method: "POST",
@@ -77,7 +83,7 @@ login = () => {
             token = data["access_token"]
             console.log(token)
             localStorage.setItem("token", token)
-            window.location.href("./order.html")
+            window.location.replace(home)
         } else {
             message = data["message"]
             err_element = document.getElementById("notif-login")
