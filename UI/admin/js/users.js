@@ -1,72 +1,50 @@
-$(document).on("click", ".icon-style, .a", function(event) {
-  event.preventDefault();
-  var href = this.href; 
-});
-$(document).ready(function() {
-  $(".dlg-wrapper").hide();
-  $(".dlg-wrapper-edit").hide();
-  $(".dlg-box").hide();
-  $(".dlg-box-edit").hide();
+window.onload = () => {
+  dlg_wrapper = document.getElementsByClassName("dlg-wrapper")[0]
+  dlg_box = document.getElementsByClassName("dlg-box")[0]
+  dlg_trash = document.getElementsByClassName("trash")
+  dlg_footer = document.getElementsByClassName("dlg-footer")
+  status_btn = document.getElementsByClassName("status")[0].firstElementChild
+  dropdown = document.getElementsByClassName("dropdown")[0]
 
-  //Cancel Delete
-  $(".dlg-footer button").click(function() {
-    $(".dlg-wrapper").fadeOut();
-    $(".dlg-box").hide();
-  });
+  all = dropdown.getElementsByClassName("all")[0]
+  active = dropdown.getElementsByClassName("active")[0]
+  not_active = dropdown.getElementsByClassName("not-active")[0]
 
-  //Delete Order
-  $(".dlg-footer .a").click(function() {
-    $(".dlg-wrapper").fadeOut();
-    $(".dlg-box").hide();
-  });
+  list_item = document.getElementsByClassName("list-item")
+  item_not_active = document.getElementsByClassName("item-not-active")
+  item_active = document.getElementsByClassName("item-active")    
+    
+  dlg_wrapper.style.display = "none"
+  dlg_box.style.display = "none"
 
-  //Open Delete Modal
-  $(".trash").click(function() {
-    $(".dlg-wrapper").fadeIn();
-    $(".dlg-box").fadeIn();
-  });
+  for(i=0; i<dlg_trash.length; i++){
+      dlg_trash[i].onclick = () => {
+          dlg_wrapper.style.display = "block"
+          dlg_box.style.display = "block"
+      }
+  }
 
-  // Discard Changes on Edit
-  $(".dlg-box-edit .dlg-footer button").click(function() {
-    $(".dlg-wrapper-edit").fadeOut();
-    $(".dlg-box-edit").hide();
-  });
+  for(i=0; i<dlg_footer.length; i++){
+      dlg_footer[i].firstElementChild.onclick = () => {
+          dlg_wrapper.style.display = "none"
+          dlg_box.style.display = "none"
+      }
+  }
 
-  // Save Changes on Edit
-  $(".dlg-box-edit .dlg-footer .a").click(function() {
-    $(".dlg-wrapper-edit").fadeOut();
-    $(".dlg-box-edit").hide();
-  });
+  status_btn.onclick = () => {
+      dropdown.classList.toggle("show_dropdown")
+  }
 
-  // Open Edit Modal
-  $(".edit").click(function() {
-    $(".dlg-wrapper-edit").fadeIn();
-    $(".dlg-box-edit").fadeIn();
-  });
+  all.onclick = () => {
+      
+  }
+  
+  active.onclick = () => {
+      
+  }
 
-  $(".status button").click(function() {
-    $(".dropdown").toggleClass("show_dropdown");
-  });
+  not_active.onclick = () => {
+      
+  }
 
-  $(this).click(function(e) {
-    $(".status")
-      .not($(".status").has($(e.target)))
-      .children(".dropdown")
-      .removeClass("show_dropdown");
-  });
-
-  $(".dropdown .all").click(function() {
-    $(".list-item").show();
-  });
-  $(".dropdown .active").click(function() {
-    $(".item-not-active").hide();
-    $(".item-active").show();
-  });
-  $(".dropdown .not-active").click(function() {
-    $(".item-not-active").show();
-    $(".item-active").hide();
-  });
-  $('.menu').on('click', function() {
-    $('.dropdown-two').toggle()
-  })
-});
+}

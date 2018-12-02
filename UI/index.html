@@ -18,7 +18,7 @@
   <div class="login-page">
     <div class="form">
       <a href="index.html"><img src="images/nav_logo.png" class="logo" /></a>
-      <form class="register-form">
+      <form id="register-form">
         <input type="text" id="username" placeholder="Username" />
         <input type="text" id="email" placeholder="Email" />
         <input type="text" id="phone" placeholder="Phone" />
@@ -28,16 +28,16 @@
         <span id="notif-register"></span>
         <button class="btn" onclick="register()">Register</button>
         <p class="message">Already Registered?
-          <a href="#">Login</a>
+          <a href="#" id="a_login">Login</a>
         </p>
       </form>
-      <form>
+      <form id="login-form">
         <input type="text" id="username_login" placeholder="Username" />
         <input type="password" id="password_login" placeholder="Password" />
         <span id="notif-login"></span>
         <button class="btn" onclick="login('user')">Login</button>
         <p class="message">Not Registered?
-          <a href="#">Register</a>
+          <a href="#" id="a_register">Register</a>
         </p>
         <p class="message-admin">Switch To
           <a href="./admin/login.html">Admin</a>

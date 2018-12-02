@@ -1,27 +1,20 @@
-$(document).ready(function() {
-  $("#dlg-wrapper").hide();
-  $("#dlg-box").hide();
+window.onload = () => {
+  dlg_wrapper = document.getElementById("dlg-wrapper")
+  dlg_box = document.getElementById("dlg-box")
+  order_btn = document.getElementsByClassName("order-btn")[0]
+  cancel_btn = document.getElementById("dlg-footer").getElementsByTagName("button")[0]
+  
+  dlg_wrapper.style.display = "none"
+  dlg_box.style.display = "none"
 
-  $("#dlg-footer button").click(function() {
-    $("#dlg-wrapper").fadeOut();
-    $("#dlg-box").hide();
-  });
+  order_btn.onclick = () => {
+      dlg_wrapper.style.display = "block"
+      dlg_box.style.display = "block"
+  }
 
-  // $('#dlg-wrapper').click(function() {
-  //   $(this).hide();
-  //   $('#dlg-box').hide();
-  // })
-
-  $(".order-btn").click(function() {
-    $("#dlg-wrapper").fadeIn();
-    $("#dlg-box").fadeIn();
-  });
-
-  $('.menu').click(function() {
-    // $('.adm-nav .dropdown').toggle();
-  })
-
-  $('.menu').on('click', function() {
-    $('.dropdown').toggle()
-  })
-});
+  cancel_btn.onclick = () => {
+      dlg_wrapper.style.display = "none"
+      dlg_box.style.display = "none"
+  }
+  
+}

@@ -1,81 +1,44 @@
-$(document).on('click', '.icon-style, .a', function (event) {
-      event.preventDefault();    // Now the link doesn't do anything
-      var href = this.href;      // The link's URL is in this variable
-    });
-    $(document).ready(function () {
-      $('.dlg-wrapper').hide()
-      $('.dlg-wrapper-edit').hide()
-      $('.dlg-box').hide();
-      $('.dlg-box-edit').hide();
+window.onload = () => {
+  dlg_wrapper = document.getElementsByClassName("dlg-wrapper")[0]
+  dlg_wrapper_edit = document.getElementsByClassName("dlg-wrapper-edit")[0]
+  dlg_box = document.getElementsByClassName("dlg-box")[0]
+  dlg_box_edit = document.getElementsByClassName("dlg-box-edit")[0]
+  dlg_footer = document.getElementsByClassName("dlg-footer")
+  dlg_trash = document.getElementsByClassName("trash")
+  dlg_edit = document.getElementsByClassName("edit")
+  status_btn = document.getElementsByClassName("status")[0].firstElementChild
+  dropdown = document.getElementsByClassName("dropdown")[0]
 
-      //Cancel Delete
-      $('.dlg-footer button').click(function () {
-        $('.dlg-wrapper').fadeOut();
-        $('.dlg-box').hide();
-      })
+  dlg_wrapper.style.display = "none"
+  dlg_wrapper_edit.style.display = "none"
+  dlg_box_edit.style.display = "none"
+  dlg_box.style.display = "none"
 
-      //Delete Order
-      $('.dlg-footer .a').click(function () {
-        $('.dlg-wrapper').fadeOut();
-        $('.dlg-box').hide();
-      })
+  for(i=0; i<dlg_footer.length; i++){
+      dlg_footer[i].firstElementChild.onclick = () => {
+          dlg_wrapper.style.display = "none"
+          dlg_wrapper_edit.style.display = "none"
+          dlg_box_edit.style.display = "none"
+          dlg_box.style.display = "none"
+      }
+  }
 
-      //Open Delete Modal
-      $('.trash').click(function () {
-        $('.dlg-wrapper').fadeIn();
-        $('.dlg-box').fadeIn();
-      })
+  for(i=0; i<dlg_trash.length; i++){
+      dlg_trash[i].onclick = () => {
+          dlg_wrapper.style.display = "block"
+          dlg_box.style.display = "block"
+      }
+  }
 
-      // Discard Changes on Edit
-      $('.dlg-box-edit .dlg-footer button').click(function () {
-        $('.dlg-wrapper-edit').fadeOut();
-        $('.dlg-box-edit').hide();
-      })
+  for(i=0; i<dlg_edit.length; i++){
+      dlg_edit[i].onclick = () => {
+          dlg_wrapper_edit.style.display = "block"
+          dlg_box_edit.style.display = "block"
+      }
+  }
 
-      // Save Changes on Edit
-      $('.dlg-box-edit .dlg-footer .a').click(function () {
-        $('.dlg-wrapper-edit').fadeOut();
-        $('.dlg-box-edit').hide();
-      })
+  status_btn.onclick = () => {
+      dropdown.classList.toggle("show_dropdown")
+  }
 
-      // Open Edit Modal
-      $('.edit').click(function () {
-        $('.dlg-wrapper-edit').fadeIn();
-        $('.dlg-box-edit').fadeIn();
-      })
-
-      // Implement Dropdown
-      $('.status button').click(function () {
-        $('.dropdown').toggleClass('show_dropdown')
-      });
-
-      //Click anywhere in the document except class status and dropdown
-      $(this).click(function (e) {
-        $('.status')
-          .not($('.status').has($(e.target)))
-          .children('.dropdown')
-          .removeClass('show_dropdown');
-      })
-
-      // Display all Orders made
-      $('.dropdown .all').click(function () {
-        $('.list-item').show();
-      })
-
-      // Display Delivered Orders
-      $('.dropdown .delivered').click(function () {
-        $('.item-not-delivered').hide();
-        $('.item-delivered').show();
-      })
-
-      // Display Non delivered Orders
-      $('.dropdown .not-delivered').click(function () {
-        $('.item-not-delivered').show();
-        $('.item-delivered').hide();
-      })
-
-      //Nav Menu dropdown
-      $('.menu').on('click', function() {
-        $('.dropdown-two').toggle()
-      })
-    });
+}

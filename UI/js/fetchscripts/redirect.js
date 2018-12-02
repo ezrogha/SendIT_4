@@ -1,4 +1,4 @@
 if (localStorage.getItem("token") != null) {
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token")
     window.location.replace("./order.html");
 }
