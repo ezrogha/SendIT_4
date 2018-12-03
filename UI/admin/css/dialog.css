@@ -38,13 +38,8 @@
   letter-spacing: 1px
 }
 
-.dlg-body {
-  height: 80px;
-  letter-spacing: 1px;
-}
-
 .dlg-body-edit, .dlg-body {
-  height: 100px;
+  height: 130px;
   letter-spacing: 1px;
   padding: 10px;
   font-size: 15px
