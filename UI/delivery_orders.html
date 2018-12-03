@@ -13,23 +13,26 @@
   <link rel="stylesheet" type="text/css" media="screen" href="./admin/css/dialog.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/delivery_orders.js"></script>
+  <!-- <script src="js/fetchscripts/fetch_user_orders.js"></script> -->
 </head>
 
 <body>
   <div class="dlg-wrapper-edit">
     <div class="dlg-box-edit">
       <div class="dlg-header">
-        Edit Order: 0182
+        <span>Edit Order: 0182</span>
+        <span style="float: right">Date:</span>
       </div>
       <div class="dlg-body-edit">
         <div>
           <span>From:</span>
-          <select disabled>
+          <select disabled id="from-edit">
             <option>Kampala, Uganda</option>
           </select>
           <span> To:</span>
-          <select>
+          <select id="to-edit">
             <option>Mbale, Uganda</option>
+            <option>Kampala, Uganda</option>
             <option>Mbarara, Uganda</option>
             <option>Gulu, Uganda</option>
             <option>Nairobi, Kenya</option>
@@ -40,15 +43,19 @@
         </div>
         <div>
           <span>Weight (in Kg): </span>
-          <input value="1.2" size="5" disabled />
+          <input value="1.2" size="5" disabled id="weight-edit" />
           <span>Price (in USD):</span>
-          <input value="32" size="5" disabled />
+          <input value="32" size="5" disabled id="price-edit" />
         </div>
         <div>
           <span>Status: </span>
-          <select>
+          <select id="status-edit">
             <option>Not Delivered</option>
           </select>
+        </div>
+        <div>
+          <span>Current location: </span>
+          <input value="" disabled id="location-edit" />
         </div>
       </div>
       <div class="dlg-footer">
@@ -61,7 +68,8 @@
   <div class="dlg-wrapper">
     <div class="dlg-box">
       <div class="dlg-header">
-        Order: 0182
+        <span>Order: 0182</span>
+        <span>Date:</span>
       </div>
       <div class="dlg-body">
         <div>
@@ -142,7 +150,7 @@
           </div>
         </div>
       </div>
-      <div class="list-item item-not-delivered">
+      <!-- <div class="list-item item-not-delivered">
         <div class="list-col">0182</div>
         <div class="list-col">Kampala, Uganda</div>
         <div class="list-col">Kisumu, Kenya</div>
@@ -173,9 +181,10 @@
         <div class="list-col">0.4</div>
         <div class="list-col">34</div>
         <div class="list-col yeah">Delivered</div>
-      </div>
+      </div> -->
     </div>
   </div>
+  <script src="js/fetchscripts/fetch_user_orders.js"></script>
 </body>
 
 </html>
