@@ -122,6 +122,7 @@ nav ul li a:hover {
   text-align: center;
   padding: 15px 0;
   box-sizing: border-box;
+  margin-right: 5px
 }
 
 .list-col-icon {
