@@ -96,7 +96,7 @@ handledialog = parcel => {
         dlg_header = dlg_box_edit.getElementsByClassName("dlg-header")[0]
         dlg_header_ord = dlg_header.getElementsByTagName("span")[0]
         dlg_header_date = dlg_header.getElementsByTagName("span")[1]
-        dlg_header_ord.innerHTML = `Order: ${parcelid}`
+        dlg_header_ord.innerHTML = parcelid
         dlg_header_date.innerHTML = creation_date
         from_edit = document.getElementById("from-edit")
         from_edit.getElementsByTagName("option")[0].innerHTML = source
