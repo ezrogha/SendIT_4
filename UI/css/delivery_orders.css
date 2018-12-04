@@ -131,11 +131,15 @@ nav ul li a:hover {
 }
 
 .not {
-  color: #e78200;
+  color: #b16a0e;
 }
 
 .yeah {
   color: #28862c;
+}
+
+.cancelled {
+  color: #ff0606;
 }
 
 .status {
