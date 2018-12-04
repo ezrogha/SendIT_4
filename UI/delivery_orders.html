@@ -62,25 +62,26 @@
         <button class="btn">Cancel</button>
         <a href="#" class="btn a">Save</a>
         <button class="btn">Cancel Order</button>
+        <button class="btn">Make Order</button>
       </div>
     </div>
   </div>
   <div class="dlg-wrapper">
     <div class="dlg-box">
       <div class="dlg-header">
-        <span>Order: 0182</span>
-        <span>Date:</span>
+        Order: <span>0182</span>
+        <span></span>
       </div>
       <div class="dlg-body">
         <div>
           <span>From:</span>
-          <select disabled>
+          <select disabled id="from">
             <option>Kampala, Uganda</option>
           </select>
           <span> To:</span>
-          <select disabled>
+          <select disabled id="to">
             <option>Mbale, Uganda</option>
-            <option selected>Mbarara, Uganda</option>
+            <option>Mbarara, Uganda</option>
             <option>Gulu, Uganda</option>
             <option>Nairobi, Kenya</option>
             <option>Kisumu, Kenya</option>
@@ -90,15 +91,19 @@
         </div>
         <div>
           <span>Weight (in Kg): </span>
-          <input value="1.2" size="5" disabled />
+          <input value="1.2" size="5" disabled id="weight" />
           <span>Price (in USD):</span>
-          <input value="32" size="5" disabled />
+          <input value="32" size="5" disabled id="price" />
         </div>
         <div>
           <span>Status: </span>
-          <select disabled>
+          <select disabled id="status">
             <option>Delivered</option>
           </select>
+        </div>
+        <div>
+          <span>Current location: </span>
+          <input value="" disabled id="location" />
         </div>
       </div>
       <div class="dlg-footer">
@@ -145,6 +150,7 @@
             <ul class="dropdown">
               <li class="all">All Orders</li>
               <li class="delivered">Delivered</li>
+              <li class="in-transit">In Transit</li>
               <li class="not-delivered">Not Delivered</li>
             </ul>
           </div>
@@ -186,6 +192,8 @@
   </div>
   <script src="js/fetchscripts/fetch_user_orders.js"></script>
   <script src="js/fetchscripts/change_destination.js"></script>
+  <script src="js/fetchscripts/cancel_order.js"></script>
+  <script src="js/fetchscripts/make_order_after_cancel.js"></script>
 </body>
 
 </html>
