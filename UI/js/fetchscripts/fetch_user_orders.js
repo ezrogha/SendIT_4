@@ -81,7 +81,7 @@ handledata = parcel => {
         div_sta.classList.add("list-col", "yeah")
         div_sta.innerHTML = status
     } else if (status === "In Transit") {
-        div_sta.classList.add("list-col", "yeah")
+        div_sta.classList.add("list-col", "in-transit")
         div_sta.innerHTML = status
     }
 

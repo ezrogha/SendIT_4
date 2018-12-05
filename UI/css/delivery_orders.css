@@ -138,6 +138,11 @@ nav ul li a:hover {
   color: #28862c;
 }
 
+.in-transit {
+  color: #08be35;
+  font-style: italic;
+}
+
 .cancelled {
   color: #ff0606;
 }
