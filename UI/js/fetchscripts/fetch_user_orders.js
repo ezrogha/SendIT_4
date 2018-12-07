@@ -1,25 +1,35 @@
-const token = localStorage.getItem("token")
-data = JSON.parse(atob(token.split('.')[1]))
-userData = data["identity"]
-console.log(`Data: ${JSON.stringify(userData)}`)
+window.onload = () => {
+    dlg_wrapper_edit = document.getElementsByClassName("dlg-wrapper-edit")[0]
+    dlg_box_edit = document.getElementsByClassName("dlg-box-edit")[0]
+    dlg_wrapper = document.getElementsByClassName("dlg-wrapper")[0]
+    dlg_box = document.getElementsByClassName("dlg-box")[0]
+    dlg_box_edit.style.display = "none"
+    dlg_wrapper_edit.style.display = "none"
+    dlg_box.style.display = "none"
+    dlg_wrapper.style.display = "none"
+    // console.log(localStorage.getItem("token"))
+    const token = localStorage.getItem("token")
+    data = JSON.parse(atob(token.split('.')[1]))
+    userData = data["identity"]
+    console.log(`Data: ${JSON.stringify(userData)}`)
 
-userId = userData["userid"]
-const url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`
-const auth = `Bearer ${localStorage.getItem("token")}`
+    userId = userData["userid"]
+    const url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`
+    const auth = `Bearer ${localStorage.getItem("token")}`
 
-fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": auth
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(parcel => handledata(parcel))
-    })
-    .catch(err => `Error: ${err}`)
-
+    fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": auth
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(parcel => handledata(parcel))
+        })
+        .catch(err => `Error: ${err}`)
+}
 
 handledata = parcel => {
     creation_date = parcel["creation_date"]
@@ -218,10 +228,10 @@ handledialog = parcel => {
         dlg_footer = dlg_box_edit.getElementsByClassName("dlg-footer")[0]
         dlg_footer_cancel_order = dlg_footer.getElementsByTagName("button")[1]
         dlg_footer_make_order = dlg_footer.getElementsByTagName("button")[2]
-        
+
         dlg_footer_cancel_order.style.display = "inline-block"
         dlg_footer_make_order.style.display = "none"
-        
+
         dlg_wrapper_edit.style.display = "block"
         dlg_box_edit.style.display = "block"
     }
