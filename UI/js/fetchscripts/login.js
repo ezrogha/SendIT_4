@@ -143,11 +143,16 @@ login = (user) => {
         err_element.classList.remove("err-msg")
         err_element.style.display = "none"
     }
-    login_loader = document.getElementsByClassName("loader")[1]
-    login_btn = document.getElementsByClassName("btn")[1]
+
+    if (user === "admin") {
+        login_loader = document.getElementsByClassName("loader")[0]
+        login_btn = document.getElementsByClassName("btn")[0]
+    } else {
+        login_loader = document.getElementsByClassName("loader")[1]
+        login_btn = document.getElementsByClassName("btn")[1]
+    }
     login_loader.style.display = "block"
     login_btn.style.display = "none"
-
 
     fetch(url, {
             method: "POST",
