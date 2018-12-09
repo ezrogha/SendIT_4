@@ -2,12 +2,13 @@ window.onload = () => {
     const token = localStorage.getItem("token");
     data = JSON.parse(atob(token.split(".")[1]));
     userData = data["identity"];
-    console.log(`Data: ${JSON.stringify(userData)}`);
+    // console.log(`Data: ${JSON.stringify(userData)}`);
 
     const url = "http://127.0.0.1:5000/api/v2/admin/users";
 
     const auth = `Bearer ${localStorage.getItem("token")}`;
-
+    loader = document.getElementById("loader")
+    loader.style.display = "block"
     fetch(url, {
             method: "GET",
             headers: {
@@ -22,6 +23,7 @@ window.onload = () => {
                     handleUser(user);
                 }
             });
+            loader.style.display = "none"  
         });
 };
 

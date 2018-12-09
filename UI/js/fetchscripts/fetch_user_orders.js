@@ -11,11 +11,13 @@ window.onload = () => {
     const token = localStorage.getItem("token")
     data = JSON.parse(atob(token.split('.')[1]))
     userData = data["identity"]
-    console.log(`Data: ${JSON.stringify(userData)}`)
+    // console.log(`Data: ${JSON.stringify(userData)}`)
 
     userId = userData["userid"]
     const url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`
     const auth = `Bearer ${localStorage.getItem("token")}`
+    loader = document.getElementById("loader")
+    loader.style.display = "block"
 
     fetch(url, {
             method: "GET",
@@ -27,6 +29,7 @@ window.onload = () => {
         .then(response => response.json())
         .then(data => {
             data.forEach(parcel => handledata(parcel))
+            loader.style.display = "none"
         })
         .catch(err => `Error: ${err}`)
 }
@@ -179,7 +182,7 @@ handledialog = parcel => {
         myfrom.getElementsByTagName("option")[0].innerHTML = source
         myto = document.getElementById("to")
         myto.getElementsByTagName("option")[0].innerHTML = destination
-        console.log(destination)
+        // console.log(destination)
 
         myweight = document.getElementById("weight")
         myprice = document.getElementById("price")

@@ -11,12 +11,14 @@ window.onload = () => {
     const token = localStorage.getItem("token");
     data = JSON.parse(atob(token.split(".")[1]));
     userData = data["identity"];
-    console.log(`Data: ${JSON.stringify(userData)}`);
+    // console.log(`Data: ${JSON.stringify(userData)}`);
 
     const url = "http://127.0.0.1:5000/api/v2/parcels";
     // const url = "https://sendit-updated.herokuapp.com/api/v2/parcels";
     const auth = `Bearer ${localStorage.getItem("token")}`;
 
+    loader = document.getElementById("loader")
+    loader.style.display = "block"
     fetch(url, {
             method: "GET",
             headers: {
@@ -26,10 +28,11 @@ window.onload = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             data.forEach(parcel => {
                 handleParcel(parcel);
             });
+            loader.style.display = "none"
         })
         .catch(err => console.log(err))
 };
