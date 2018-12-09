@@ -32,5 +32,7 @@ dlg_footer_save.onclick = () => {
     dlg_wrapper_edit.style.display = "none"
     dlg_box_edit.style.display = "none"
 
-    location.reload()
+    setTimeout(() => {
+        location.reload()
+    }, 2000)
 }
