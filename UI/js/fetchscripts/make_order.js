@@ -10,7 +10,7 @@ dlg_btn.onclick = () => {
     weight = Number(document.getElementById("weight").value)
     price = Number(document.getElementById("price").innerHTML)
 
-    console.log(destination)
+    // console.log(destination)
     const data = {
         source,
         destination,
@@ -34,7 +34,7 @@ dlg_btn.onclick = () => {
             if (message === "Parcel has been created") {
                 window.location.href = "./delivery_orders.html"
             } else {
-                console.log(message)
+                // console.log(message)
             }
         })
         .catch(err => console.log(`Error: ${err}`))

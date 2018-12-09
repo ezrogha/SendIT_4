@@ -51,7 +51,7 @@ register = () => {
 
     if (password != confirm) {
         document.getElementById("notif-register").innerHTML = "Passwords do not match, , please check again"
-        console.log("Passwords dont match, please check again")
+        // console.log("Passwords dont match, please check again")
     } else {
         const data = {
             username,
@@ -165,7 +165,7 @@ login = (user) => {
         .then(data => {
             if (data.hasOwnProperty("access_token")) {
                 token = data["access_token"]
-                console.log(token)
+                // console.log(token)
                 localStorage.setItem("token", token)
                 window.location.replace(home)
             } else {
