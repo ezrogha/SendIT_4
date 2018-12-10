@@ -9,6 +9,7 @@ dlg_footer_make_order.onclick = () => {
 
     const auth = `Bearer ${localStorage.getItem("token")}`
     const url = `http://127.0.0.1:5000/api/v2/parcels/${parcelid}/order`
+    // const url = `https://sendit-updated.herokuapp.com/api/v2/parcels/${parcelid}/order`
 
     fetch(url, {
             method: "PUT",

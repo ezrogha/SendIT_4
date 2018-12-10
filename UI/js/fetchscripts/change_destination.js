@@ -14,6 +14,7 @@ dlg_footer_save.onclick = () => {
     }
     const auth = `Bearer ${localStorage.getItem("token")}`
     const url = `http://127.0.0.1:5000/api/v2/parcels/${parcelid}/destination`
+    // const url = `https://sendit-updated.herokuapp.com/api/v2/parcels/${parcelid}/destination`
 
     fetch(url, {
             method: "PUT",

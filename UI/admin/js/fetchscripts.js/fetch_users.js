@@ -5,6 +5,7 @@ window.onload = () => {
     // console.log(`Data: ${JSON.stringify(userData)}`);
 
     const url = "http://127.0.0.1:5000/api/v2/admin/users";
+    // const url = "https://sendit-updated.herokuapp.com/api/v2/admin/users";
 
     const auth = `Bearer ${localStorage.getItem("token")}`;
     loader = document.getElementById("loader")

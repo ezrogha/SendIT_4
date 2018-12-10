@@ -15,6 +15,7 @@ window.onload = () => {
 
     userId = userData["userid"]
     const url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`
+    const url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcels`
     const auth = `Bearer ${localStorage.getItem("token")}`
     loader = document.getElementById("loader")
     loader.style.display = "block"
