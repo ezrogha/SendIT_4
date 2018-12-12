@@ -39,4 +39,10 @@ dlg_btn.onclick = () => {
             }
         })
         .catch(err => console.log(`Error: ${err}`))
+
+        dlg_wrapper = document.getElementsByClassName("dlg-wrapper")[0]
+        dlg_box = document.getElementsByClassName("dlg-box")[0]
+        
+        dlg_wrapper.style.display = "none"
+        dlg_box.style.display = "none"
 }
