@@ -5,7 +5,7 @@ window.onload = () => {
     // console.log(`Data: ${JSON.stringify(userData)}`);
 
     // const url = "http://127.0.0.1:5000/api/v2/admin/users";
-    const url = "https://sendit-updated.herokuapp.com/api/v2/admin/users";
+    var url = "https://sendit-updated.herokuapp.com/api/v2/admin/users";
 
     const auth = `Bearer ${localStorage.getItem("token")}`;
     loader = document.getElementById("loader")
@@ -24,8 +24,53 @@ window.onload = () => {
                     handleUser(user);
                 }
             });
-            loader.style.display = "none"  
+            loader.style.display = "none"
         });
+
+
+    var search_input = document.getElementById("search_users")
+    search_input.onkeyup = (event) => {
+        val = event.target.value
+        if (val.trim() === "") {
+            // var url = `http://127.0.0.1:5000/api/v2/admin/users`;
+            var url = "https://sendit-updated.herokuapp.com/api/v2/admin/users";
+            method = "GET"
+        } else {
+            new_val = val.trim()
+            low_val = new_val.toLowerCase()
+            // var url = `http://127.0.0.1:5000/api/v2/user/${low_val}`;
+            var url = `https://sendit-updated.herokuapp.com/api/v2/user/${val}`;
+            method = "PUT"
+        }
+        const auth = `Bearer ${localStorage.getItem("token")}`;
+
+        loader = document.getElementById("loader")
+        loader.style.display = "block"
+
+        fetch(url, {
+                method,
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: auth
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                order_list = document.getElementsByClassName("order-list")[0];
+                kids = order_list.children
+                for (i = 0; i < kids.length; i++) {
+                    if (kids[i].className === "list-item item-active") {
+                        kids[i].style.display = "none"
+                    }
+                }
+                data.forEach(user => {
+                    if (user["role"] !== "admin") {
+                        handleUser(user);
+                    }
+                });
+                loader.style.display = "none"
+            });
+    }
 };
 
 handleUser = user => {
