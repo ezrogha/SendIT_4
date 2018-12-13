@@ -39,13 +39,13 @@ window.onload = () => {
         val = event.target.value
         console.log(val)
         if (val.trim() === "" || isNaN(val.trim())) {
-            // var url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcels`
-            var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`
+            var url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcels`
+            // var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`
             method = "GET"
         } else {
             new_val = val.trim()
-            // var url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcel/${val}`
-            var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcel/${new_val}`
+            var url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcel/${val}`
+            // var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcel/${new_val}`
             method = "PUT"
         }
         const auth = `Bearer ${localStorage.getItem("token")}`;
