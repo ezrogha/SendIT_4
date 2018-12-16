@@ -153,7 +153,28 @@ handleUser = user => {
     dlg_wrapper = document.getElementsByClassName("dlg-wrapper")[0]
     dlg_box = document.getElementsByClassName("dlg-box")[0]
 
-    dlg_wrapper.style.display = "none"
-    dlg_box.style.display = "none"
+    a_icon.onclick = () => {
+        event.preventDefault()
+        handleDlg(user)
+        dlg_wrapper.style.display = "block"
+        dlg_box.style.display = "block"
+    }
 
 };
+
+handleDlg = user => {
+    username = user["username"]
+    userId = user["userid"]
+    status = user["status"]
+
+    dlg_box = document.getElementsByClassName("dlg-box")[0]
+    dlg_header = dlg_box.getElementsByClassName("dlg-header")[0]
+    dlg_body = dlg_box.getElementsByClassName("dlg-body")[0]
+    if (status === "active") {
+        dlg_header.innerHTML = "Confirm Deactivation"
+        dlg_body.innerHTML = `Are you sure you want to <i style='color: red'>deactivate</i> <span>${userId}</span>:${username}'s account?`
+    } else {
+        dlg_header.innerHTML = "Confirm Activation"
+        dlg_body.innerHTML = `Are you sure you want to <i style='color: green'>activate</i> <span>${userId}</span>:${username}'s account?`
+    }
+}
