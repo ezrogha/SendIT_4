@@ -28,7 +28,13 @@ window.onload = () => {
         })
         .then(response => response.json())
         .then(data => {
-            // console.log(data)
+            order_list = document.getElementsByClassName("order-list")[0];
+            kids = order_list.children
+            for (i = 0; i < kids.length; i++) {
+                if (kids[i].classList.contains("list-item")) {
+                    kids[i].style.display = "none"
+                }
+            }
             data.forEach(parcel => {
                 handleParcel(parcel);
             });

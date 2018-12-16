@@ -19,6 +19,13 @@ window.onload = () => {
         })
         .then(response => response.json())
         .then(data => {
+            order_list = document.getElementsByClassName("order-list")[0];
+            kids = order_list.children
+            for (i = 0; i < kids.length; i++) {
+                if (kids[i].classList.contains("list-item")) {
+                    kids[i].style.display = "none"
+                }
+            }
             data.forEach(user => {
                 if (user["role"] !== "admin") {
                     handleUser(user);
@@ -56,7 +63,7 @@ window.onload = () => {
                 order_list = document.getElementsByClassName("order-list")[0];
                 kids = order_list.children
                 for (i = 0; i < kids.length; i++) {
-                    if (kids[i].className === "list-item item-active") {
+                    if (kids[i].classList.contains("list-item")) {
                         kids[i].style.display = "none"
                     }
                 }

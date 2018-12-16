@@ -7,11 +7,9 @@ window.onload = () => {
     dlg_wrapper_edit.style.display = "none"
     dlg_box.style.display = "none"
     dlg_wrapper.style.display = "none"
-    // console.log(localStorage.getItem("token"))
     const token = localStorage.getItem("token")
     data = JSON.parse(atob(token.split('.')[1]))
     userData = data["identity"]
-    // console.log(`Data: ${JSON.stringify(userData)}`)
 
     userId = userData["userid"]
     // const url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`
@@ -29,6 +27,13 @@ window.onload = () => {
         })
         .then(response => response.json())
         .then(data => {
+            order_list = document.getElementsByClassName("order-list")[0];
+            kids = order_list.children
+            for (i = 0; i < kids.length; i++) {
+                if (kids[i].classList.contains("list-item")) {
+                    kids[i].style.display = "none"
+                }
+            }
             data.forEach(parcel => handleParcel(parcel))
             loader.style.display = "none"
         })
