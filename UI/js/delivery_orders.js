@@ -20,6 +20,32 @@ window.onload = () => {
     dlg_box_edit.style.display = "none"
     dlg_box.style.display = "none"
 
+    dlg_edit = document.getElementById("dlg-edit")
+    dlg_edit.onclick = () => {
+        event.preventDefault()
+        document.getElementsByClassName("dlg-wrapper-prof")[0].style.display = "block"
+        document.getElementsByClassName("dlg-box-prof")[0].style.display = "block"
+    }
+
+    dlg_box_prof = document.getElementsByClassName("dlg-box-prof")[0]
+    dlg_footer_prof = dlg_box_prof.getElementsByClassName("dlg-footer")[0]
+    dlg_footer_prof_cancel = dlg_footer_prof.getElementsByClassName("cancel")[0]
+    dlg_footer_prof_cancel.onclick = () => {
+        document.getElementsByClassName("dlg-wrapper-prof")[0].style.display = "none"
+        document.getElementsByClassName("dlg-box-prof")[0].style.display = "none"
+    }
+
+    dlg_footer_prof_ok = dlg_footer_prof.getElementsByClassName("ok")[0]
+    dlg_footer_prof_ok.onclick = () => {
+        document.getElementsByClassName("dlg-wrapper-alert")[0].style.display = "none"
+        document.getElementsByClassName("dlg-box-alert")[0].style.display = "none"
+    }
+
+    document.getElementById("change-pass-text").onclick = () => {
+        event.preventDefault()
+        document.getElementById("change-pass").style.display = "block"
+    }
+
     for (i = 0; i < item_not_delivered.length; i++) {
         item_not_delivered[i].onclick = () => {
             event.preventDefault()
@@ -37,6 +63,7 @@ window.onload = () => {
     }
 
     for (i = 0; i < item_delivered.length; i++) {
+     
         item_delivered[i].onclick = () => {
             event.preventDefault()
             dlg_wrapper.style.display = "block"
