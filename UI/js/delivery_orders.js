@@ -10,6 +10,11 @@ window.onload = () => {
     status_btn = document.getElementsByClassName("status")[0].firstElementChild
     dropdown = document.getElementsByClassName("dropdown")[0]
 
+    profile = document.getElementsByClassName("profile")[0] 
+    profile.onclick = () => {
+        document.getElementById("profile-dialog").classList.toggle("show_dialogg")
+    }
+
     dlg_wrapper_edit.style.display = "none"
     dlg_wrapper.style.display = "none"
     dlg_box_edit.style.display = "none"

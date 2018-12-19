@@ -11,6 +11,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="css/delivery_orders.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="./admin/css/dialog.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/profile.css" />
   <!-- <script src="js/fetchscripts/fetch_user_orders.js"></script> -->
   <script src="js/fetchscripts/redirect_out.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -129,6 +130,29 @@
     </nav>
 
     <div class="order-list">
+      <div id="profile-container">
+        <div id="inner">
+          <img src="images/DefaultProfileImage.png" alt="Profile" class="profile" id="profile" title="Click to View Profile" />
+          <div id="profile-dialog" class="profile-dialog">
+            <h3>Profile</h3>
+            <span class="dlg-inner">Name: <span id="dlg-name">Timbiti Roghashin</span></span> <br />
+            <span class="dlg-inner">Email: <span id="dlg-email">rtimbiti@gmail.com</span></span> <br />
+            <span class="dlg-inner">address: <span id="dlg-address">Nsambya, Kampala</span></span> <br />
+            <span class="dlg-inner">Phone: <span id="dlg-phone">0777579402</span></span> <br />
+            <span><a href="#" id="dlg-edit">Edit Profile</a></span>
+            <hr />
+            <span class="dlg-inner">Delivered: <span id="dlg-deli"></span></span> <br />
+            <span class="dlg-inner">In Transit: <span id="dlg-intran"></span></span> <br />
+            <span class="dlg-inner">Not Delivered: <span id="dlg-notdeli"></span></span> <br />
+            <span class="dlg-inner">Cancelled: <span id="dlg-canc"></span></span> <br />
+          </div>
+        </div>
+        <div id="other">
+          <span id="profile-name">Name: <span></span></span><br />
+          <span id="profile-orders">Orders: <span></span></span><br />
+          <!-- <span><a href="#" class="dlg-edit">Edit Profile</a></span><br /> -->
+        </div>
+      </div>
       <div class="search-box">
         <input type="text" placeholder="Search by OrderId" id="search_orders" />
         <button>
