@@ -1,44 +1,69 @@
 window.onload = () => {
-  dlg_wrapper = document.getElementsByClassName("dlg-wrapper")[0]
-  dlg_wrapper_edit = document.getElementsByClassName("dlg-wrapper-edit")[0]
-  dlg_box = document.getElementsByClassName("dlg-box")[0]
-  dlg_box_edit = document.getElementsByClassName("dlg-box-edit")[0]
-  dlg_footer = document.getElementsByClassName("dlg-footer")
-  dlg_trash = document.getElementsByClassName("trash")
-  dlg_edit = document.getElementsByClassName("edit")
-  status_btn = document.getElementsByClassName("status")[0].firstElementChild
-  dropdown = document.getElementsByClassName("dropdown")[0]
+    dlg_wrapper = document.getElementsByClassName("dlg-wrapper")[0]
+    dlg_wrapper_edit = document.getElementsByClassName("dlg-wrapper-edit")[0]
+    dlg_box = document.getElementsByClassName("dlg-box")[0]
+    dlg_box_edit = document.getElementsByClassName("dlg-box-edit")[0]
+    dlg_footer = document.getElementsByClassName("dlg-footer")
+    dlg_trash = document.getElementsByClassName("trash")
+    dlg_edit = document.getElementsByClassName("edit")
+    status_btn = document.getElementsByClassName("status")[0].firstElementChild
+    dropdown = document.getElementsByClassName("dropdown")[0]
+    dlg_wrapper_email = document.getElementsByClassName("dlg-wrapper-email")[0]
+    dlg_box_email = document.getElementsByClassName("dlg-box-email")[0]
+    dlg_wrapper_emailconfirm = document.getElementsByClassName("dlg-wrapper-emailconfirm")[0]
+    dlg_box_emailconfirm = document.getElementsByClassName("dlg-box-emailconfirm")[0]
 
-  dlg_wrapper.style.display = "none"
-  dlg_wrapper_edit.style.display = "none"
-  dlg_box_edit.style.display = "none"
-  dlg_box.style.display = "none"
 
-  for(i=0; i<dlg_footer.length; i++){
-      dlg_footer[i].firstElementChild.onclick = () => {
-          dlg_wrapper.style.display = "none"
-          dlg_wrapper_edit.style.display = "none"
-          dlg_box_edit.style.display = "none"
-          dlg_box.style.display = "none"
-      }
-  }
+    dlg_wrapper.style.display = "none"
+    dlg_wrapper_edit.style.display = "none"
+    dlg_box_edit.style.display = "none"
+    dlg_box.style.display = "none"
+    dlg_wrapper_email.style.display = "none"
+    dlg_box_email.style.display = "none"
+    dlg_wrapper_emailconfirm.style.display = "none"
+    dlg_box_emailconfirm.style.display = "none"
 
-  for(i=0; i<dlg_trash.length; i++){
-      dlg_trash[i].onclick = () => {
-          dlg_wrapper.style.display = "block"
-          dlg_box.style.display = "block"
-      }
-  }
+    profile = document.getElementsByClassName("profile")[0]
+    profile.onclick = () => {
+        document.getElementById("profile-dialog").classList.toggle("show_dialogg")
+    }
 
-  for(i=0; i<dlg_edit.length; i++){
-      dlg_edit[i].onclick = () => {
-          dlg_wrapper_edit.style.display = "block"
-          dlg_box_edit.style.display = "block"
-      }
-  }
+    dlg_edit = document.getElementById("dlg-edit")
+    dlg_edit.onclick = () => {
+        document.getElementsByClassName("dlg-wrapper-email")[0].style.display = "block"
+        document.getElementsByClassName("dlg-box-email")[0].style.display = "block"
+    }
 
-  status_btn.onclick = () => {
-      dropdown.classList.toggle("show_dropdown")
-  }
+    document.getElementById("cancel-email-btn").onclick = () => {
+        document.getElementsByClassName("dlg-wrapper-email")[0].style.display = "none"
+        document.getElementsByClassName("dlg-box-email")[0].style.display = "none"
+    }
+
+    for (i = 0; i < dlg_footer.length; i++) {
+        dlg_footer[i].firstElementChild.onclick = () => {
+            dlg_wrapper.style.display = "none"
+            dlg_wrapper_edit.style.display = "none"
+            dlg_box_edit.style.display = "none"
+            dlg_box.style.display = "none"
+        }
+    }
+
+    for (i = 0; i < dlg_trash.length; i++) {
+        dlg_trash[i].onclick = () => {
+            dlg_wrapper.style.display = "block"
+            dlg_box.style.display = "block"
+        }
+    }
+
+    for (i = 0; i < dlg_edit.length; i++) {
+        dlg_edit[i].onclick = () => {
+            dlg_wrapper_edit.style.display = "block"
+            dlg_box_edit.style.display = "block"
+        }
+    }
+
+    status_btn.onclick = () => {
+        dropdown.classList.toggle("show_dropdown")
+    }
 
 }
