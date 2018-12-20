@@ -19,8 +19,8 @@ window.onload = () => {
     profile_orders.getElementsByTagName("span")[0].innerHTML = currentUser["parcels"]
 
 
-    var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`;
-    // const url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcels`
+    // var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`;
+    const url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcels`
     const auth = `Bearer ${localStorage.getItem("token")}`;
     loader = document.getElementById("loader")
     loader.style.display = "block"
@@ -73,14 +73,14 @@ window.onload = () => {
     search_input.onkeyup = (event) => {
         val = event.target.value
         if (val.trim() === "" || isNaN(val.trim())) {
-            var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`;
-            // var url = "https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcels`;
+            // var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcels`;
+            var url = "https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcels`;
             method = "GET"
         } else {
             new_val = val.trim()
             // int_val = parseInt(new_val)
-            var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcel/${new_val}`
-            // var url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcel/${new_val}`
+            // var url = `http://127.0.0.1:5000/api/v2/users/${userId}/parcel/${new_val}`
+            var url = `https://sendit-updated.herokuapp.com/api/v2/users/${userId}/parcel/${new_val}`
             method = "PUT"
         }
         const auth = `Bearer ${localStorage.getItem("token")}`;
@@ -122,8 +122,8 @@ window.onload = () => {
             body: body.value
         }
 
-        const emailurl = "http://127.0.0.1:5000/api/v2/admin/user/mail"
-        // const url = "https://sendit-updated.herokuapp.com/api/v2/admin/user/mail"
+        // const emailurl = "http://127.0.0.1:5000/api/v2/admin/user/mail"
+        const url = "https://sendit-updated.herokuapp.com/api/v2/admin/user/mail"
 
         fetch(emailurl, {
                 method: "POST",
