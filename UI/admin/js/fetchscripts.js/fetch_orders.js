@@ -35,6 +35,13 @@ window.onload = () => {
                     kids[i].style.display = "none"
                 }
             }
+            if (data.length == 0) {
+                order_list = document.getElementsByClassName("order-list")[0]
+                noneDiv = document.createElement("div")
+                noneDiv.setAttribute("id", "none")
+                noneDiv.innerHTML = "No orders currently available"
+                order_list.appendChild(noneDiv)
+            }
             data.forEach(parcel => {
                 handleParcel(parcel);
             });
@@ -73,6 +80,13 @@ window.onload = () => {
                     if (kids[i].classList.contains("list-item")) {
                         kids[i].style.display = "none"
                     }
+                }
+                if (data.length == 0) {
+                    order_list = document.getElementsByClassName("order-list")[0]
+                    noneDiv = document.createElement("div")
+                    noneDiv.setAttribute("id", "none")
+                    noneDiv.innerHTML = "No orders currently available"
+                    order_list.appendChild(noneDiv)
                 }
                 data.forEach(parcel => {
                     if (parcel["role"] !== "admin") {
